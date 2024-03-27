@@ -1,6 +1,4 @@
-package com.menu.bean;
-
-import org.springframework.stereotype.Component;
+package com.food.delivery.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-@Component
 public class Restaurant {
 
 	@Id

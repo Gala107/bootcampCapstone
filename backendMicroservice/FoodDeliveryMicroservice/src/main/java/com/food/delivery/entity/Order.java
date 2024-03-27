@@ -1,9 +1,8 @@
-package com.menu.bean;
+package com.food.delivery.entity;
 
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +13,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Component
 @Scope("prototype")
 @Table(name = "online_order")
 public class Order {

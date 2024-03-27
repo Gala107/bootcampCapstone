@@ -1,10 +1,12 @@
-package com.menu.controller;
+package com.food.delivery.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("menu")
+@RequestMapping("view")
+@CrossOrigin
 public class MenuViewController {
 	
 

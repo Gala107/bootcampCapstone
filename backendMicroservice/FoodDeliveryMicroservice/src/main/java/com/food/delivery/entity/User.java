@@ -1,21 +1,15 @@
-package com.menu.bean;
+package com.food.delivery.entity;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-@Component
 @Scope("prototype")
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 	private String email;
 	private String password;
 	
@@ -71,18 +65,6 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String isAdmin() {
-		return isAdmin;
-	}
-	public void setAdmin(String isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getIsAdmin() {
 		return isAdmin;

@@ -1,8 +1,6 @@
-package com.menu.bean;
+package com.food.delivery.entity;
 
 import java.sql.Blob;
-
-import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-@Component
 public class Dish {
 
 	@Id

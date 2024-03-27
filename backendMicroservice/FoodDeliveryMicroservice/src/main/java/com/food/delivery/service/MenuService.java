@@ -1,4 +1,4 @@
-package com.menu.service;
+package com.food.delivery.service;
 
 import org.springframework.stereotype.Service;
 
