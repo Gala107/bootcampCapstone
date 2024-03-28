@@ -1,0 +1,43 @@
+<h1 class="pageHeader">Restaurants</h1>
+<table id="tableB">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Phone</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let restaurant of restaurants">
+			<td>{{restaurant.name}}</td>
+			<td>{{restaurant.cuisine}}</td>
+			<td>{{restaurant.address}}</td>
+			<td>{{restaurant.phone}}</td>
+			<td><a href="updateMenu/{{restaurant.id}}"><img alt="Update Menu" src="assets/update.jpg"></a></td>
+			<td><a href="deleteRestaurant/{{restaurant.id}}"><img alt="Delete" src="assets/delete.png"></a></td>
+		</tr>
+		<tr *ngIf="!isAddRestaurant">
+			<td><a (click)="isAddRestaurant = true"><u>Add a Restaurant</u></a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<form *ngIf="isAddRestaurant" [formGroup]="restaurantForm" (ngSubmit)="addRestaurant()">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Cuisine</th>
+			<th>Address</th>
+			<th>Phone</th>
+		</tr>
+		<tr">
+            <td><input id=namee" formControlName="name" /></td>
+            <td><input id="cuisine" formControlName="cuisine" /></td>
+            <td><input id="address" formControlName="address" /></td>
+			<td><input id="phone" formControlName="phone" /></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+	</table>
+</form>

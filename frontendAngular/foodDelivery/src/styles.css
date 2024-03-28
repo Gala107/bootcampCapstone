@@ -1,0 +1,153 @@
+body {
+	font-size: 20px;
+	color: rgb(179, 174, 174);
+    text-align: center;
+	background-color: rgb(116, 0, 0);
+}
+
+h2 {
+	padding-top: 70px;
+	font-size: 70px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+
+}
+
+li:nth-child(1) {
+	float: left;
+}
+
+li:nth-child(2) {
+	float: left;
+	margin-left: 15%;
+}
+
+li:nth-child(3) {
+	float: left;
+}
+
+li:nth-child(4) {
+	float: left;
+}
+
+li:nth-child(5) {
+	float: left;
+}
+
+li:nth-child(6) {
+	float: right;
+	margin-right: 40px;
+}
+
+li a {
+	color: rgb(179, 174, 174);
+    text-align: center;
+    padding: 0 40px;
+    text-decoration: none;
+	font-weight: bold;
+}
+
+.loginA a {
+	padding: 0 5px;
+}
+
+li a:hover {
+	text-decoration: underline rgb(179, 174, 174);
+}
+
+.warning {
+	color: red;
+	margin-bottom: 20px;
+}
+
+input,
+select {
+	border: 0;
+	border-bottom: 2px solid rgb(179, 174, 174);
+	/*border-radius: 6px;*/
+	outline: none;
+	padding: 5px;
+	color: rgb(135, 132, 132);
+	font-size: 15px;
+	/* width: 16em;*/
+	width: 100%;
+}
+
+input[type=submit] {
+	color: whitesmoke;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 5px;
+	background: rgb(179, 174, 174);
+	/*width: 5em;
+	display: block;
+	margin-left: 10em; */
+	border: 2px solid rgb(179, 174, 174);
+	border-radius: 6px;
+}
+
+input[type=radio] {
+	width: 30px;
+	margin-left: 20px;
+	accent-color:  rgb(179, 174, 174);
+	outline: none;
+}
+
+/* input[type=checkbox] {
+	clip-path: circle(80% at 50% 50%);
+	accent-color: rgb(97, 100, 237);
+} */
+
+table {
+	width: 100%;
+}
+
+th {
+	font-size: 25px;
+	border-bottom: 2px solid rgb(200, 201, 249);
+}
+
+th,
+td {
+	padding: 10px 20px 10px 0;
+	text-align: left;
+}
+
+.center {
+	padding-top: 20px;
+}
+
+.coName {
+	font-style: italic;
+	font-size: 30px;
+
+}
+
+.headerImg {
+	width:100%;
+
+}
+
+.signInModal, .signUpModal {
+	padding: 15px;
+}
+
+/* #tableP th:nth-child(odd),
+#tableP td:nth-child(odd) {
+	width: 25%;
+}
+
+#tableP th:nth-child(2),
+#tableP td:nth-child(2) {
+	width: 20%;
+} */
+
+#confirmReservation label {
+	font-weight: bold;
+}
+
+/* You can add global styles to this file, and also import other style files */

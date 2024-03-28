@@ -1,0 +1,68 @@
+<div *ngIf="loginOption == 'signIn'" class="signInModal">
+    <h3>Sign In</h3>
+    <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+        <table>
+            <tr>
+                <td>
+                    <label for="email">Email</label><br />
+                    <input type="email" id="email" formControlName="email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password</label><br />
+                    <input type="password" id="password" formControlName="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="role">Who are you?</label>
+                    <input type="radio" id="isAdmin" formControlName="isAdmin" value="false" />Client
+                    <input type="radio" formControlName="isAdmin" value="true" />Admin
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Sign In" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div *ngIf="loginOption == 'signUp'" class="signUpModal">
+    <h3>Sign Up</h3>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <table>
+            <tr>
+                <td>
+                    <label for="firstName">First Name</label><br />
+                    <input type="text" id="firstName" formControlName="firstName" />
+                </td>
+                <td>
+                    <label for="lastName">Last Name</label><br />
+                    <input type="text" id="lastName" formControlName="lastName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="phone">Phone Number</label><br />
+                    <input type="text" id="phone" formControlName="phone" />
+                </td>
+                <td>
+                    <label for="email">Email</label><br />
+                    <input type="email" id="email" formControlName="email" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="password">Create Password</label><br />
+                    <input type="password" id="password" formControlName="password" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Create Account" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div class="warning">{{msg}}</div>
