@@ -13,7 +13,7 @@ import com.food.delivery.repository.UserRepository;
 public class LoginService {
 
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 
 	public String signUp(User user) {
 		Optional<User> result = userRepository.findById(user.getEmail());
