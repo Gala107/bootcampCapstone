@@ -10,26 +10,36 @@ import com.food.delivery.repository.DishRepository;
 
 @Service
 public class MenuService {
-	
+
 	@Autowired
 	private DishRepository repository;
-	
+
 	public List<Dish> getDishesByRestaurant(int restaurantId) {
 		return repository.getDishesByRestaurant(restaurantId);
 	}
-	
+
 	public List<Dish> getDishesByType(String type) {
 		return repository.getDishesByType(type);
 	}
-	
-	public void saveDish(Dish dish) {
-		repository.save(dish);
+
+	public String saveDish(Dish dish) {
+		try {
+			repository.save(dish);
+			return "";
+		} catch (Error e) {
+			return "Not able to save a Dish at this time. Error: " + e;
+		}
 	}
-	
-	public void deleteDish(int id) {
-		repository.deleteById(id);
+
+	public String deleteDish(int id) {
+		try {
+			repository.deleteById(id);
+			return "";
+		} catch (Error e) {
+			return "Not able to delete a Dish at this time. Error: " + e;
+		}
 	}
-	
+
 	public List<Dish> getAllDishesSortedByType() {
 		return repository.getAllDishes();
 	}

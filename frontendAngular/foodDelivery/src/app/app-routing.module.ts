@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'client', component: ClientMenuComponent },
-  { path: 'adminMenu', component: AdminMenuComponent },
-  { path: 'adminRestaurants', component: AdminRestaurantsComponent },
+  { path: 'manageMenu', component: AdminMenuComponent },
+  { path: 'manageRestaurants', component: AdminRestaurantsComponent },
   { path: 'restaurants', component: ClientRestaurantsComponent },
   { path: 'menu', component: ClientMenuComponent },
   { path: 'order', component: OrderComponent }

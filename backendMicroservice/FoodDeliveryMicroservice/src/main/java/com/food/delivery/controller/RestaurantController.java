@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,22 +20,23 @@ import com.food.delivery.service.RestaurantService;
 @RequestMapping("restaurant")
 @CrossOrigin
 public class RestaurantController {
-	
+
 	@Autowired
 	RestaurantService service;
-	
+
 	@GetMapping(value = "getRestaurants", produces = MediaType.APPLICATION_JSON_VALUE)
 	List<Restaurant> getAllRestaurants() {
 		return service.getAllRestaurants();
 	}
-	
+
 	@PostMapping(value = "saveRestaurant", consumes = MediaType.APPLICATION_JSON_VALUE)
-	void saveRestaurant(@RequestBody Restaurant restaurant) {
-		service.saveRestaurant(restaurant);
+	String saveRestaurant(@RequestBody Restaurant restaurant) {
+		return service.saveRestaurant(restaurant);
+
 	}
-	
-	@GetMapping(value = "deleteRestaurant")
-	void deleteRestaurant(int id) {
-		service.deleteRestaurant(id);
+
+	@DeleteMapping(value = "deleteRestaurant/{id}")
+	String deleteRestaurant(@PathVariable(name = "id") int id) {
+		return service.deleteRestaurant(id);
 	}
 }

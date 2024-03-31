@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isAdmin: boolean = false;
   msg: string = "";
   instanceRef: any;
-  subscription: any;
+  subscription: Subscription = new Subscription();
 
   signInForm: any = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,13 +30,4 @@ export class AppComponent {
     sessionStorage.clear();
     this.router.navigate([""], {skipLocationChange: true});
   }
-
-  manageRestaurants(): void {
-
-  }
-
-  manageMenu(): void {
-
-  }
-
 }

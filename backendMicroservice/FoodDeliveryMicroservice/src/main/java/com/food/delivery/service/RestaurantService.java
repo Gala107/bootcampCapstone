@@ -10,19 +10,29 @@ import com.food.delivery.repository.RestaurantRepository;
 
 @Service
 public class RestaurantService {
-	
+
 	@Autowired
 	private RestaurantRepository repository;
-	
+
 	public List<Restaurant> getAllRestaurants() {
 		return repository.findAll();
 	}
-	
-	public void saveRestaurant(Restaurant restaurant) {
-		repository.save(restaurant);
+
+	public String saveRestaurant(Restaurant restaurant) {
+		try {
+			repository.save(restaurant);
+			return "";
+		} catch (Error e) {
+			return "Not able to add a Restaurant at this time. Error: " + e;
+		}
 	}
-	
-	public void deleteRestaurant(int id) {
-		repository.deleteById(id);
+
+	public String deleteRestaurant(int id) {
+		try {
+			repository.deleteById(id);
+			return "";
+		} catch (Error e) {
+			return "Not able to delete a Restaurant at this time. Error: " + e;
+		}
 	}
 }

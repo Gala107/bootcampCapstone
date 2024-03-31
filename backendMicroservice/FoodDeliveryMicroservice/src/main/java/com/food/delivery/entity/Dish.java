@@ -1,8 +1,7 @@
 package com.food.delivery.entity;
 
-import java.sql.Blob;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,14 +17,14 @@ public class Dish {
 	private String description;
 	private float price;
 	private String type;
-	private Blob image;
-	@ManyToOne
+	private String image;
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Restaurant restaurant;
 	
 	public Dish() {
 
 	}
-	public Dish(int id, String name, String description, float price, String type, Blob image) {
+	public Dish(int id, String name, String description, float price, String type, String image) {
 
 		this.id = id;
 		this.name = name;
@@ -64,10 +63,10 @@ public class Dish {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Blob getImage() {
+	public String getImage() {
 		return image;
 	}
-	public void setImage(Blob image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 }

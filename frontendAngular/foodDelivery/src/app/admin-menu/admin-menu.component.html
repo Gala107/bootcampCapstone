@@ -1,1 +1,40 @@
-<p>admin-menu works!</p>
+<h1 class="pageHeader">Menu</h1>
+<fieldset *ngFor="let restaurant of restaurants" class="resDiv">
+    <legend>{{restaurant.name}} : {{restaurant.cuisine}} Cuisine</legend>
+    <div *ngIf="!isAddDish"><a (click)="isAddDish = true">Add a Dish</a></div>
+    <div class="warning">{{msg}}</div>
+    <form *ngIf="isAddDish" [formGroup]="dishForm" (ngSubmit)="addDish()">
+        <table class="addDishTable">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Type</th>
+                <th>Image</th>
+                <th colspan="2"></th>
+            </tr>
+            <tr>
+                <td><input id="name" formControlName="name" /></td>
+                <td><input id="description" formControlName="description" /></td>
+                <td><input id="price" formControlName="price" /></td>
+                <td><select formControlName="type">
+                        <option *ngFor="let type of enum | keyvalue" id="type" value="type.key">{{type.key}}
+                        </option>
+                    </select>
+                </td>
+                <td><input id="image" formControlName="image" /></td>
+                <td><input type="submit" value="Add" /></td>
+                <td><input type="button" (click)="isAddDish = false" value="Cancel" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="dishListDiv">
+        <div class="dishDiv" *ngFor="let dish of restaurant.dishes">
+            <div class="dishImg"><img src={{dish.image}} /></div>
+            <div class="dishName">{{dish.name}}</div><br>
+            <div class="dishDesc">{{dish.price}}.{{dish.description}}</div><br>
+            <div class="dishDelete"><a href="" (click)="deleteDish(dish.id)">Delete</a></div>
+        </div>
+    </div>
+</fieldset>

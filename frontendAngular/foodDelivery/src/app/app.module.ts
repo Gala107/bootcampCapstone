@@ -9,13 +9,17 @@ import { ClientMenuComponent } from './client-menu/client-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminRestaurantsComponent } from './admin-restaurants/admin-restaurants.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminMenuComponent,
-    ClientMenuComponent
+    ClientMenuComponent,
+    AdminRestaurantsComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

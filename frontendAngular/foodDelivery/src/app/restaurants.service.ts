@@ -20,7 +20,7 @@ export class RestaurantsService {
     return this.http.post(this.baseUrl + "/saveRestaurant", restaurant, {responseType: "text"});
   }
 
-  deleteRestaurant(id: string): Observable<string> {
+  deleteRestaurant(id: any): Observable<string> {
     return this.http.delete(this.baseUrl + "/deleteRestaurant/" + id, {responseType: "text"});
   }
 }

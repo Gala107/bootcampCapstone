@@ -4,16 +4,17 @@
         <li class="coName">Foodie Inc.</li>
         <li><a routerLink="/menu">MENU</a></li>
         <li><a routerLink="/restaurants">RESTAURANTS</a></li>
-        <li><a *ngIf="sessionStorage.getItem('userType') == 'admin'" routerLink="" (click)="manageRestaurants()">MANAGE RESTAURANTS</a></li>
-        <li><a *ngIf="sessionStorage.getItem('userType') == 'admin'" routerLink="" (click)="manageMenu()">MANAGE MENU</a></li>
+        <li><a *ngIf="sessionStorage.getItem('userType') == 'admin'" routerLink="/manageRestaurants">MANAGE RESTAURANTS</a></li>
+        <li><a *ngIf="sessionStorage.getItem('userType') == 'admin'" routerLink="/manageMenu">MANAGE MENU</a></li>
         <li *ngIf="sessionStorage.getItem('userType') == null" class="loginA"><a routerLink="" (click)="signIn()">Sign In</a>|<a routerLink="" (click)="signUp()">Create Account</a></li>
         <li *ngIf="sessionStorage.getItem('userType') != null" class="loginA">Hello, {{sessionStorage.getItem("userName")}} |<a routerLink="" (click)="signOut()">Sign Out</a></li>
       </ul>
       </nav>
   
-    <img class="headerImg" src="assets/header.png" />
+    <div *ngIf="sessionStorage.getItem('userType') == null; else userImg"><img class="headerImg"  src="assets/header.png" /></div>
+    <ng-template #userImg><img class="headerImg" src="assets/res.jpg" /></ng-template>
   
-    <h2 *ngIf="router.url == '/'">{{title}}</h2>
+    <h2 *ngIf="router.url == '/' && sessionStorage.getItem('userType') != 'admin'">{{title}}</h2>
   
     <router-outlet></router-outlet>
     

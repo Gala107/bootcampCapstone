@@ -1,7 +1,8 @@
 export enum DishType {
-    SALAD,
-    PIZZA,
-    PASTA,
-    SPECIAL,
-    DESSERT,
+    SALAD = "FROM THE GARDEN",
+    PIZZA = "WOOD FIRED PIZZAS",
+    PASTA = "DELICIOUS PASTAS",
+    SPECIALS = "SPECIALS",
+    BURGERS = "BETWEEN THE SLICES",
+    DESSERT = "DESSERTS"
 }

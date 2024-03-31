@@ -34,13 +34,13 @@ public class MenuController {
 	}
 	
 	@PostMapping(value = "saveDish", consumes = MediaType.APPLICATION_JSON_VALUE)
-	void saveDish(@RequestBody Dish dish) {
-		service.saveDish(dish);
+	String saveDish(@RequestBody Dish dish) {
+		return service.saveDish(dish);
 	}
 	
-	@GetMapping(value = "deleteDish")
-	void deleteDish(int id) {
-		service.deleteDish(id);
+	@GetMapping(value = "deleteDish/{id}")
+	String deleteDish(@PathVariable(name="id") int id) {
+		return service.deleteDish(id);
 	}
 	
 	@GetMapping(value = "getAllDishes") 
