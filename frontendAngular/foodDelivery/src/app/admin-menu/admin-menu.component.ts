@@ -14,7 +14,7 @@ import { DishType } from '../dish-type';
 })
 export class AdminMenuComponent implements OnInit, OnDestroy {
 
-  enum: typeof DishType = DishType;
+  dishType = DishType;
   
   name: any = sessionStorage.getItem("userName");
   email: any = sessionStorage.getItem("userEmail");

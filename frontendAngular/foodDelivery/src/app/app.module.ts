@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { ClientMenuComponent } from './client-menu/client-menu.component';
+import { ClientRestaurantsComponent } from './client-restaurants/client-restaurants.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +19,7 @@ import { OrderComponent } from './order/order.component';
     LoginComponent,
     AdminMenuComponent,
     ClientMenuComponent,
+    ClientRestaurantsComponent,
     AdminRestaurantsComponent,
     OrderComponent
   ],

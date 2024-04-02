@@ -1,31 +1,30 @@
-<h1 class="pageHeader">Restaurants</h1>
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Cuisine</th>
-			<th>Address</th>
-			<th>Phone</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let restaurant of restaurants">
-			<td>{{restaurant.name}}</td>
-			<td>{{restaurant.cuisine}}</td>
-			<td>{{restaurant.address}}</td>
-			<td>{{restaurant.phone}}</td>
-			<td><a href="" (click)="deleteRestaurant(restaurant.id)"><img class="actionImg" alt="Delete" src="assets/delete.png"></a></td>		
-		</tr>
-		<tr *ngIf="!isAddRestaurant">
-			<td><a (click)="isAddRestaurant = true"><u>Add a Restaurant</u></a>
-			</td>
-		</tr>
-	</tbody>
-</table>
-<br/>
-<div class="warning">{{msg}}</div>
-<form *ngIf="isAddRestaurant" [formGroup]="restaurantForm" (ngSubmit)="addRestaurant()">
+<h1 class="pageHeader">Manage Restaurants</h1>
+
+<fieldset class="addItem">
+	<div class="warning">{{msg}}</div>
+	<div *ngIf="!isAddRestaurant"><a (click)="isAddRestaurant = true">Add a Restaurant</a></div>
+	<form *ngIf="isAddRestaurant" [formGroup]="restaurantForm" (ngSubmit)="addRestaurant()">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Cuisine</th>
+				<th>Address</th>
+				<th>Phone</th>
+				<th colspan="2"></th>
+			</tr>
+			<tr>
+				<td><input id="name" formControlName="name" /></td>
+				<td><input id="cuisine" formControlName="cuisine" /></td>
+				<td><input id="address" formControlName="address" /></td>
+				<td><input id="phone" formControlName="phone" /></td>
+				<td><input type="submit" value="Add" /></td>
+				<td><input type="button" (click)="isAddRestaurant = false" value="Cancel" /></td>
+			</tr>
+		</table>
+	</form>
+</fieldset>
+
+<fieldset>
 	<table>
 		<tr>
 			<th>Name</th>
@@ -34,12 +33,12 @@
 			<th>Phone</th>
 			<th></th>
 		</tr>
-		<tr>
-            <td><input id="name" formControlName="name" /></td>
-            <td><input id="cuisine" formControlName="cuisine" /></td>
-            <td><input id="address" formControlName="address" /></td>
-			<td><input id="phone" formControlName="phone" /></td>
-            <td><input type="submit" value="Add" /></td>
-        </tr>
+		<tr *ngFor="let restaurant of restaurants">
+			<td>{{restaurant.name}}</td>
+			<td>{{restaurant.cuisine}}</td>
+			<td>{{restaurant.address}}</td>
+			<td>{{restaurant.phone}}</td>
+			<td><a href="" (click)="deleteRestaurant(restaurant.id)">Delete</a></td>
+		</tr>
 	</table>
-</form>
+</fieldset>

@@ -1,0 +1,69 @@
+h1 {
+    padding-bottom: 20px;
+}
+
+.resDiv {
+    border-bottom: 1px solid rgb(171, 114, 114);
+}
+
+.dishListDiv {
+    display: inline-flex;
+    float: left;
+}
+
+.dishDiv {
+    width: 410px;
+    margin: 20px;
+    border: 1px solid rgb(171, 114, 114);
+    border-radius: 10px;
+}
+
+.dishImg img {
+    width: 410px;
+    height: 220px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    float: left;
+}
+
+.dishName {
+    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
+    float: left;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.dishDesc {
+    float: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    margin-top: 15px;
+}
+
+.dishDelete {
+    float: right;
+    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    margin-top: 15px;
+}
+
+a {
+    padding: 0 10px 20px 20px;
+    color: rgb(179, 174, 174);
+    text-decoration: none;
+	font-weight: bold;
+    float: left;
+}
+
+a:hover {
+	text-decoration: underline 1px solid rgb(179, 174, 174) !important;
+}
+
+.addDishTable {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.addDishTable th {
+    font-size: 20px;
+}

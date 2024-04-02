@@ -2,50 +2,30 @@ h1 {
     padding-bottom: 20px;
 }
 
-.resDiv {
-    border-bottom: 1px solid rgb(171, 114, 114);
+.imgTd {
+    width:15%;
 }
 
-.dishListDiv {
-    display: inline-flex;
-}
-
-.dishDiv {
-    width: 410px;
-    margin: 20px;
-    border: 1px solid rgb(171, 114, 114);
+img {
+    width: 200px;
+    height: 100px;
     border-radius: 10px;
 }
 
-.dishImg img {
-    width: 410px;
-    height: 220px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    float: left;
-}
-
-.dishName {
-    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
-    float: left;
-    padding-left: 10px;
-    font-weight: bold;
-}
-
-.dishDesc {
+/* .descTd {
     float: left;
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
-}
+} */
 
-.dishDelete {
+/* .dishDelete {
     float: right;
     font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
     font-size: large;
-}
+} */
 
 a {
-    padding: 0 10px 20px 20px;
+   
     color: rgb(179, 174, 174);
     text-decoration: none;
 	font-weight: bold;
@@ -56,29 +36,15 @@ a:hover {
 	text-decoration: underline 1px solid rgb(179, 174, 174) !important;
 }
 
-.resDiv {
-    border: 1px solid rgb(171, 114, 114);
-    border-radius: 10px;
-    padding: 10px 30px 10px 30px;
-    margin: 20px;
-    overflow: scroll;
-}
-
-.resDiv legend {
-    float: none !important;
-    width: auto;
-    padding: 10px 10px 0 10px;
-    margin-left: 50px;
-    text-align: left;
-    font-weight: bolder;
-    font-size: 30px;
-}
-
-.addDishTable {
+table {
     width: 100%;
-    margin-bottom: 25px;
 }
 
-.addDishTable th {
-    font-size: 20px;
+th:nth-child(2) {
+    width: 20%;
+}
+
+th:nth-child(4) {
+    width: 40%;
+    margin: 0 5px 0 5px;
 }

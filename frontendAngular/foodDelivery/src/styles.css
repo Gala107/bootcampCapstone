@@ -17,6 +17,30 @@ h2 {
 	font-weight: bolder;
 }
 
+fieldset {
+    border: 1px solid rgb(171, 114, 114);
+    border-radius: 10px;
+    margin: 30px;
+    overflow: auto;
+    padding: 20px 50px 20px 50px;
+}
+
+fieldset.addItem {
+	border: none;
+	padding: 0 50px;
+	margin: 0 30px;
+}
+
+legend {
+    float: none !important;
+    width: auto;
+    padding: 10px 10px 20px 10px;
+    margin: 0 0 0 50px;
+    text-align: left;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
 ul {
     list-style-type: none;
     overflow: hidden;
@@ -80,7 +104,6 @@ input,
 select {
 	border: 0;
 	border-bottom: 2px solid rgb(179, 174, 174);
-	/*border-radius: 6px;*/
 	outline: none;
 	padding: 5px;
 	color: rgb(135, 132, 132);
@@ -95,9 +118,6 @@ input[type=submit], input[type=button] {
 	font-weight: bold;
 	padding: 5px;
 	background: rgb(179, 174, 174);
-	/*width: 5em;
-	display: block;
-	margin-left: 10em; */
 	border: 2px solid rgb(179, 174, 174);
 	border-radius: 6px;
 }
@@ -109,20 +129,9 @@ input[type=radio] {
 	outline: none;
 }
 
-/* input[type=checkbox] {
-	clip-path: circle(80% at 50% 50%);
-	accent-color: rgb(97, 100, 237);
-} */
-
-table {
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 th {
 	font-size: 25px;
-	border-bottom: 2px solid rgb(200, 201, 249);
+	border-bottom: 1px solid rgb(171, 114, 114);
 }
 
 th,

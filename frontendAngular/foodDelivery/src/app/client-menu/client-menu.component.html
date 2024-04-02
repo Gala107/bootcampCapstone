@@ -1,1 +1,31 @@
-<p>client-menu works!</p>
+<h1 class="pageHeader">Menu</h1>
+<div *ngFor="let type of dishTypes | keyvalue">
+    <fieldset>
+        <div class="dishListDiv" *ngFor="let dish of dishesByType.get(type.key)">
+            <legend>{{type.value}}</legend>
+            <div class="dishDiv">
+                <!-- <div class="dishDiv" *ngFor="let dish of dishes">  -->
+                <div class="dishImg"><img src={{dish.image}} /></div>
+                <div class="dishName">{{dish.name}}</div><br>
+                <div class="dishDesc">{{dish.description}}</div>
+                <div class="dishDelete"><a href="" (click)="addToCart(dish)">Add To Cart ${{dish.price}}</a></div>
+                <!-- </div>  -->
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+
+<!-- 
+<fieldset *ngFor="let type of dishesByType | keyvalue" class="resDiv">
+    <legend>{{if(type.key in DishType)?DishType.}}</legend>
+
+    <div class="dishListDiv">
+        <div class="dishDiv" *ngFor="let dish of type.value">
+            <div class="dishImg"><img src={{dish.image}} /></div>
+            <div class="dishName">{{dish.name}}</div><br>
+            <div class="dishDesc">{{dish.description}}</div>
+            <div class="dishDelete"><a href="" (click)="addToCart(dish)">Add To Cart ${{dish.price}}</a></div>
+        </div>
+    </div>
+</fieldset> -->

@@ -1,0 +1,50 @@
+h1 {
+    padding-bottom: 20px;
+}
+
+.imgTd {
+    width:15%;
+}
+
+img {
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.nameTd {
+    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
+    float: left;
+    padding-left: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.descTd {
+    float: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    width: 30%;
+}
+
+.dishDelete {
+    float: right;
+    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+
+a {
+   
+    color: rgb(179, 174, 174);
+    text-decoration: none;
+	font-weight: bold;
+    float: left;
+}
+
+a:hover {
+	text-decoration: underline 1px solid rgb(179, 174, 174) !important;
+}
+
+table {
+    width: 100%;
+}
