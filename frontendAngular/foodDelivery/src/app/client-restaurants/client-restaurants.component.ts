@@ -42,11 +42,11 @@ export class ClientRestaurantsComponent implements OnInit, OnDestroy {
   }
 
   addToCart(dish: any): void {
-    this.menuService.saveDish(this.dishForm.value).subscribe({
-      next: (result: any) => { this.msg = result },
-      error: (error: any) => { console.error(error) },
-      complete: () => { console.log("Saving a Dish is completed.") }
-    })
+    // this.menuService.saveDish(this.dishForm.value).subscribe({
+    //   next: (result: any) => { this.msg = result },
+    //   error: (error: any) => { console.error(error) },
+    //   complete: () => { console.log("Saving a Dish is completed.") }
+    // })
   }
 
   getAllDishes() {

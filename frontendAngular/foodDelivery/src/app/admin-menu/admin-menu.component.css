@@ -12,18 +12,6 @@ img {
     border-radius: 10px;
 }
 
-/* .descTd {
-    float: left;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: medium;
-} */
-
-/* .dishDelete {
-    float: right;
-    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-} */
-
 a {
    
     color: rgb(179, 174, 174);
@@ -44,7 +32,20 @@ th:nth-child(2) {
     width: 20%;
 }
 
-th:nth-child(4) {
-    width: 40%;
+th:nth-child(3) {
+    width: 10%;
+}
+
+.addDishTable th:nth-child(5) {
+    width: 30%;
     margin: 0 5px 0 5px;
+}
+
+.addDishTable th:nth-child(6) {
+    width: 5%;
+    margin: 0 5px 0 5px;
+}
+
+.manDishTable th:nth-child(6) {
+    width: 8%;
 }

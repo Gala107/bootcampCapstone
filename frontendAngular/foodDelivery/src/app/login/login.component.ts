@@ -56,10 +56,8 @@ export class LoginComponent implements OnInit, OnDestroy {
           sessionStorage.setItem("userName", result.user.firstName);
           if (result.user.isAdmin == "true") {
             sessionStorage.setItem("userType", "admin");
-            //this.router.navigate(["admin"], { skipLocationChange: true });
           } else {
             sessionStorage.setItem("userType", "client");
-            //this.router.navigate(["client"], { skipLocationChange: true });
           }
           this.instanceRef.close();
         } else {
@@ -80,6 +78,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       error: (error: any) => { console.error(error) },
       complete: () => console.log("Sign Up is completed.")
     })
-    this.signUpForm.reset();
+   
+    //this.signUpForm.reset();
   }
 }

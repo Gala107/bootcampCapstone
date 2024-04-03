@@ -21,7 +21,11 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   msg: string = "";
   dishes: Dish[] = [];
   restaurants: Restaurant[] = [];
-  subscription: any;
+  getAllResSub: any;
+  getAllDishesSub: any;
+  getByTypeSub: any;
+  delSub: any;
+  addSub: any;
   isAddDish: boolean = false;
 
   dishForm = new FormGroup({
@@ -29,7 +33,10 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
     description: new FormControl(),
     price: new FormControl(),
     type: new FormControl(),
-    image: new FormControl()
+    image: new FormControl(),
+    restaurant: new FormGroup({
+      id: new FormControl()
+    })
   })
 
   constructor(private router: Router, private menuService: MenuService, private restaurantService: RestaurantsService) { }
@@ -38,27 +45,41 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.getAllDishesSub?.unsubscribe();
+    this.getAllResSub?.unsubscribe();
+    this.getByTypeSub?.unsubscribe();
+    this.delSub?.unsubscribe();
+    this.addSub?.unsubscribe();
   }
 
   addDish(): void {
-    this.menuService.saveDish(this.dishForm.value).subscribe({
-      next: (result: any) => { this.msg = result },
+    this.addSub = this.menuService.saveDish(new Dish(this.dishForm.value)).subscribe({
+      next: (result: any) => { 
+        this.msg = result; 
+        this.isAddDish = false;
+        this.dishForm.reset();
+        this.getAllRestaurants();
+      },
       error: (error: any) => { console.error(error) },
       complete: () => { console.log("Saving a Dish is completed.") }
     })
   }
 
   deleteDish(id: any): void {
-    this.menuService.deleteDish(id).subscribe({
-      next: (result: any) => { this.msg = result },
+    this.delSub = this.menuService.deleteDish(id).subscribe({
+      next: (result: any) => { 
+        this.msg = result;
+        this.dishForm.reset();
+        this.getAllRestaurants();
+        this.isAddDish = false;
+      },
       error: (error: any) => { console.error(error) },
       complete: () => { console.log("Deleting a Dish is completed.") }
     })
   }
 
   getAllDishes() {
-    this.subscription = this.menuService.getAllDishes().subscribe({
+    this.getAllDishesSub = this.menuService.getAllDishes().subscribe({
       next: (result: any) => { this.dishes = result },
       error: (error: any) => { console.error(error) },
       complete: () => { console.log("Retrieving All Dishes is completed.") }
@@ -66,7 +87,7 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   }
 
   getDishesByType(type: any) {
-    this.menuService.getDishesByType(type).subscribe({
+    this.getByTypeSub = this.menuService.getDishesByType(type).subscribe({
       next: (result: any) => { this.dishes = result },
       error: (error: any) => { console.error(error) },
       complete: () => { console.log("Retrieving Dishes by Type is completed.") }
@@ -74,12 +95,10 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   }
 
   getAllRestaurants(): void {
-    console.log("loading all restaurants.");
-    this.subscription = this.restaurantService.getRestaurants().subscribe({
+    this.getAllResSub = this.restaurantService.getRestaurants().subscribe({
       next: (result: any) => { this.restaurants = result },
       error: (error: any) => { console.error(error) },
       complete: () => { console.log("Loading restaurants is completed.") }
     });
-    console.log("finished loading resttaurant info");
   }
 }

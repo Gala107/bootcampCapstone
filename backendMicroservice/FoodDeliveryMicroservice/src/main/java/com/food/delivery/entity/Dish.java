@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Dish {
 
@@ -68,5 +70,12 @@ public class Dish {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	@JsonBackReference
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 }

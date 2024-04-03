@@ -26,6 +26,9 @@ public class Restaurant {
 	public Restaurant() {
 
 	}
+	public Restaurant(int id) {
+		this.id = id;
+	}
 	public Restaurant(int id, String name, String address, String phone, String cuisine, List<Dish> dishes) {
 
 		this.id = id;

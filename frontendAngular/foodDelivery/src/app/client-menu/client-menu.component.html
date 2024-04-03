@@ -1,8 +1,9 @@
 <h1 class="pageHeader">Menu</h1>
 <div *ngFor="let type of dishTypes | keyvalue">
-    <fieldset>
+    <fieldset *ngIf="dishesByType.has(type.key)">
+        <legend>{{type.value}}</legend>
         <div class="dishListDiv" *ngFor="let dish of dishesByType.get(type.key)">
-            <legend>{{type.value}}</legend>
+           
             <div class="dishDiv">
                 <!-- <div class="dishDiv" *ngFor="let dish of dishes">  -->
                 <div class="dishImg"><img src={{dish.image}} /></div>

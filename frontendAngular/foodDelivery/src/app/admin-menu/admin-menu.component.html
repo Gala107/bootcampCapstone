@@ -8,6 +8,7 @@
             <tr>
                 <th>Image</th>
                 <th>Name</th>
+                <th>Restaurant</th>
                 <th>Type</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -16,6 +17,10 @@
             <tr>
                 <td><input id="image" formControlName="image" /></td>
                 <td><input id="name" formControlName="name" /></td>
+                <td formGroupName="restaurant"><select formControlName="id">
+                    <option *ngFor="let restaurant of restaurants" id="type" value="{{restaurant.id}}">{{restaurant.name}}
+                    </option>
+                </select></td>
                 <td><select formControlName="type">
                         <option *ngFor="let type of dishType | keyvalue" id="type" value="{{type.key}}">{{type.key}}
                         </option>
@@ -32,9 +37,9 @@
 </fieldset>
 
 <fieldset *ngFor="let restaurant of restaurants" class="resDiv">
-    <legend>{{restaurant.name}} : {{restaurant.cuisine}} Cuisine</legend>
+    <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
 
-    <table>
+    <table class="manDishTable">
         <tr>
             <th class="imgTd">Image</th>
             <th class>Name</th>
@@ -49,7 +54,7 @@
             <td>{{dish.type}}</td>
             <td class="descTd">{{dish.description}}</td>
             <td>{{dish.price}}</td>
-            <td><a href="" (click)="deleteDish(dish.id)">Delete</a></td>
+            <td><input type="button" (click)="deleteDish(dish.id)" value="Delete" /></td>
         </tr>
     </table>
 </fieldset>

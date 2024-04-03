@@ -1,6 +1,6 @@
 <h1 class="pageHeader">Menu Offered By Restaurant</h1>
 <fieldset *ngFor="let restaurant of restaurants" class="resDiv">
-    <legend>{{restaurant.name}} : {{restaurant.cuisine}} Cuisine</legend>
+    <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
 
     <div class="dishListDiv">
         <div class="dishDiv" *ngFor="let dish of restaurant.dishes">
