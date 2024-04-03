@@ -1,14 +1,15 @@
 <h1 class="pageHeader">Menu Offered By Restaurant</h1>
-<fieldset *ngFor="let restaurant of restaurants" class="resDiv">
-    <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
+<div *ngFor="let restaurant of restaurants">
+    <fieldset *ngIf="restaurant.dishes.length" class="resDiv">
+        <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
 
-    <div class="dishListDiv">
-        <div class="dishDiv" *ngFor="let dish of restaurant.dishes">
-            <div class="dishImg"><img src={{dish.image}} /></div>
-            <div class="dishName">{{dish.name}} : {{dish.type}}</div><br>
-            <div class="dishDesc">{{dish.description}}</div>
-            <div class="dishDelete"><a href="" (click)="addToCart(dish)">Add To Cart ${{dish.price}}</a></div>
+        <div class="dishListDiv">
+            <div class="dishDiv" *ngFor="let dish of restaurant.dishes">
+                <div class="dishImg"><img src={{dish.image}} /></div>
+                <div class="dishName">{{dish.name}} : {{dish.type}}</div><br>
+                <div class="dishDesc">{{dish.description}}</div>
+                <div class="dishDelete"><a href="" (click)="addToCart(dish)">Add To Cart ${{dish.price}}</a></div>
+            </div>
         </div>
-    </div>
-</fieldset>
-
+    </fieldset>
+</div>

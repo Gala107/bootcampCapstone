@@ -18,9 +18,10 @@
                 <td><input id="image" formControlName="image" /></td>
                 <td><input id="name" formControlName="name" /></td>
                 <td formGroupName="restaurant"><select formControlName="id">
-                    <option *ngFor="let restaurant of restaurants" id="type" value="{{restaurant.id}}">{{restaurant.name}}
-                    </option>
-                </select></td>
+                        <option *ngFor="let restaurant of restaurants" id="type" value="{{restaurant.id}}">
+                            {{restaurant.name}}
+                        </option>
+                    </select></td>
                 <td><select formControlName="type">
                         <option *ngFor="let type of dishType | keyvalue" id="type" value="{{type.key}}">{{type.key}}
                         </option>
@@ -36,25 +37,27 @@
     </form>
 </fieldset>
 
-<fieldset *ngFor="let restaurant of restaurants" class="resDiv">
-    <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
+<div *ngFor="let restaurant of restaurants">
+    <fieldset *ngIf="restaurant.dishes.length" class="resDiv">
+        <legend>{{restaurant.name.toUpperCase()}} : {{restaurant.cuisine}} Cuisine</legend>
 
-    <table class="manDishTable">
-        <tr>
-            <th class="imgTd">Image</th>
-            <th class>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let dish of restaurant.dishes">
-            <td class="imgTd"><img src={{dish.image}} /></td>
-            <td class="nameTd">{{dish.name}}</td>
-            <td>{{dish.type}}</td>
-            <td class="descTd">{{dish.description}}</td>
-            <td>{{dish.price}}</td>
-            <td><input type="button" (click)="deleteDish(dish.id)" value="Delete" /></td>
-        </tr>
-    </table>
-</fieldset>
+        <table class="manDishTable">
+            <tr>
+                <th class="imgTd">Image</th>
+                <th class>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let dish of restaurant.dishes">
+                <td class="imgTd"><img src={{dish.image}} /></td>
+                <td class="nameTd">{{dish.name}}</td>
+                <td>{{dish.type}}</td>
+                <td class="descTd">{{dish.description}}</td>
+                <td>{{dish.price}}</td>
+                <td><input type="button" (click)="deleteDish(dish.id)" value="Delete" /></td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
