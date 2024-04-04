@@ -4,7 +4,7 @@ import { Dish } from '../dish';
 import { Restaurant } from '../restaurant';
 import { MenuService } from '../menu.service';
 import { RestaurantsService } from '../restaurants.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DishType } from '../dish-type';
 
 @Component({
@@ -29,13 +29,13 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   isAddDish: boolean = false;
 
   dishForm = new FormGroup({
-    name: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
-    type: new FormControl(),
-    image: new FormControl(),
+    name: new FormControl("", Validators.required),
+    description: new FormControl("", Validators.required),
+    price: new FormControl(0, Validators.required),
+    type: new FormControl("", Validators.required),
+    image: new FormControl("", Validators.required),
     restaurant: new FormGroup({
-      id: new FormControl()
+      id: new FormControl(0, Validators.required)
     })
   })
 

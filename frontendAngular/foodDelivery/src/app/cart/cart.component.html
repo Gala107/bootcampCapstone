@@ -1,0 +1,32 @@
+<div class="cartDiv">
+    <h3>Your cart</h3>
+    <table>
+        <tbody *ngFor="let dish of dishes">
+            <tr>
+                <td class="dishImg"><img src={{dish.image}} /></td>
+                <td>
+                    <div class="dishName">{{dish.name}}</div><br>
+                    <div class="dishDesc">{{dish.description}}</div>
+                </td>
+                <td class="moneyTd">${{dish.price}}</td>
+            </tr>
+            <tr>
+                <td class="updateQuantityTd"><input [disabled]="dish.quantity == 1" type="button" (click)="decrementQuantity(dish.id)" value="-" /> {{dish.quantity}}
+                    <input type="button" (click)="incrementQuantity(dish.id)" value="+" /></td>
+                <td colspan="2" class="removeDishTd"><input type="button" (click)="removeFromCart(dish.id)" value="Delete" /></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </tbody>
+        <tbody>
+        <tr>
+            <td colspan="2" class="totalTd">Total ({{getCartDishCount()}}):</td>
+            <td class="moneyTd">${{getTotal()}}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="button" (click)="submitOrder()" value="Submit Order" /></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

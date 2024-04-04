@@ -40,23 +40,22 @@ h1 {
     margin-top: 15px;
 }
 
-.dishDelete {
+.dishAdd {
     float: right;
     font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     margin-top: 15px;
 }
 
-a {
-    padding: 0 10px 20px 20px;
-    color: rgb(179, 174, 174);
-    text-decoration: none;
-	font-weight: bold;
-    float: left;
+.dishAdd:hover input[type=button] {
+    text-decoration: underline 1px solid rgb(179, 174, 174);
 }
 
-a:hover {
-	text-decoration: underline 1px solid rgb(179, 174, 174) !important;
+.dishAdd input[type=button] {
+    font-size: 18px;
+	background-color: rgb(116, 0, 0);
+    color: rgb(179, 174, 174);
+    border: none;
 }
 
 .addDishTable {

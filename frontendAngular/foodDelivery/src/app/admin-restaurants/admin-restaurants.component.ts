@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RestaurantsService } from '../restaurants.service';
 import { Restaurant } from '../restaurant';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,11 +20,11 @@ export class AdminRestaurantsComponent implements OnInit, OnDestroy {
   addSub: any;
 
   restaurantForm = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    cuisine: new FormControl(),
-    address: new FormControl(),
-    phone: new FormControl()
+    id: new FormControl(0, Validators.required),
+    name: new FormControl("", Validators.required),
+    cuisine: new FormControl("", Validators.required),
+    address: new FormControl("", Validators.required),
+    phone: new FormControl("", Validators.required)
   })
 
   constructor(private restaurantService: RestaurantsService, private router: Router) {

@@ -8,7 +8,7 @@
                 <div class="dishImg"><img src={{dish.image}} /></div>
                 <div class="dishName">{{dish.name}} : {{dish.type}}</div><br>
                 <div class="dishDesc">{{dish.description}}</div>
-                <div class="dishDelete"><a href="" (click)="addToCart(dish)">Add To Cart ${{dish.price}}</a></div>
+                <div class="dishAdd"><input type="button" (click)="addToCart(dish)" value="Add To Cart ${{dish.price}}" /></div>
             </div>
         </div>
     </fieldset>

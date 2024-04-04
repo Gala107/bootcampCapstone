@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Dish } from '../dish';
 import { DishType } from '../dish-type';
 import { MenuService } from '../menu.service';
 import { Restaurant } from '../restaurant';
 import { RestaurantsService } from '../restaurants.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-client-restaurants',
@@ -24,15 +25,15 @@ export class ClientRestaurantsComponent implements OnInit, OnDestroy {
   subscription: any;
   isAddDish: boolean = false;
 
-  dishForm = new FormGroup({
-    name: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
-    type: new FormControl(),
-    image: new FormControl()
-  })
+  // dishForm = new FormGroup({
+  //   name: new FormControl("", Validators.required),
+  //   description: new FormControl("", Validators.required),
+  //   price: new FormControl("", Validators.required),
+  //   type: new FormControl("", Validators.required),
+  //   image: new FormControl("", Validators.required)
+  // })
 
-  constructor(private router: Router, private menuService: MenuService, private restaurantService: RestaurantsService) { }
+  constructor(private router: Router, private menuService: MenuService, private restaurantService: RestaurantsService, private cartService: CartService) { }
   ngOnInit(): void {
     this.getAllRestaurants();
   }
@@ -42,11 +43,11 @@ export class ClientRestaurantsComponent implements OnInit, OnDestroy {
   }
 
   addToCart(dish: any): void {
-    // this.menuService.saveDish(this.dishForm.value).subscribe({
-    //   next: (result: any) => { this.msg = result },
-    //   error: (error: any) => { console.error(error) },
-    //   complete: () => { console.log("Saving a Dish is completed.") }
-    // })
+    if (this.name == null || this.email == null) {
+      alert("Please Sign In to start an Order. Thank you!");
+      this.router.navigateByUrl("/restaurants");
+    }
+    this.cartService.addToCart(dish);
   }
 
   getAllDishes() {

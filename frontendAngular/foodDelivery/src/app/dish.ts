@@ -8,6 +8,7 @@ export class Dish {
     price: number = 0;
     type: string = "";
     image: string = "";
+    quantity: number = 0;
     restaurant: Restaurant = new Restaurant();
 
     constructor(init?: any) {

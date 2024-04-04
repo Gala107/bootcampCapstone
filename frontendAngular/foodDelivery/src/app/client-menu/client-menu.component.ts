@@ -6,6 +6,7 @@ import { DishType } from '../dish-type';
 import { Dish } from '../dish';
 import { Restaurant } from '../restaurant';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-client-menu',
@@ -22,7 +23,7 @@ export class ClientMenuComponent implements OnInit, OnDestroy {
   dishTypes = DishType;
   subscription: any;
 
-  constructor(private router: Router, private menuService: MenuService, private restaurantService: RestaurantsService) { }
+  constructor(private router: Router, private menuService: MenuService, private cartService: CartService) { }
   ngOnInit(): void {
     this.getAllDishes();
   }
@@ -32,11 +33,11 @@ export class ClientMenuComponent implements OnInit, OnDestroy {
   }
 
   addToCart(dish: any): void {
-    // this.menuService.saveDish(dish).subscribe({
-    //   next: (result: any) => {  },
-    //   error: (error: any) => { console.error(error) },
-    //   complete: () => { console.log("Saving a Dish is completed.") }
-    // })
+    if (this.name == null || this.email == null) {
+      alert("Please Sign In to start an Order. Thank you!");
+      this.router.navigateByUrl("/menu");
+    }
+    this.cartService.addToCart(dish);
   }
 
   getAllDishes() {
@@ -49,7 +50,7 @@ export class ClientMenuComponent implements OnInit, OnDestroy {
 
   sortDishesByType() {
     this.dishes.forEach((dish) => {
-      if(!this.dishesByType.has(dish.type)) {
+      if (!this.dishesByType.has(dish.type)) {
         this.dishesByType.set(dish.type, [dish]);
       } else {
         this.dishesByType.get(dish.type)?.push(dish);

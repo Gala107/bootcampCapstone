@@ -1,0 +1,63 @@
+table {
+	width: 90%;
+	margin: 0 auto 15px auto;
+    font-family: 'Courier New', Courier, monospace, 'Arial Narrow', Arial, sans-serif;
+}
+
+td {
+    padding: 10px 10px 0 0;
+    vertical-align: center;
+}
+
+td:nth-child(1) {
+    width: 15%;
+}
+
+td:nth-child(2) {
+    width: 80%;
+}
+
+.dishImg img {
+    width: 150px;
+    height: 75px;
+    border-radius: 5px;
+    margin-top: 10px;
+    float: left;
+}
+
+.dishName {
+  
+    float: left;
+    font-weight: bold;
+    font-size:18px;
+}
+
+.dishDesc {
+    float: left;
+    font-size: 15px;
+
+}
+
+.cartDiv {
+    margin: 15px 0 5px 0;
+}
+
+.totalTd {
+    font-weight: bold;
+}
+
+.moneyTd {
+    float: right;
+    font-weight: bold;
+}
+
+.updateQuantityTd input[type=button] {
+    width: 30px;
+    height: 30px;
+    padding: 0 0 20px 0;
+}
+
+.removeDishTd input[type=button] {
+    width: 90px;
+}
+

@@ -6,17 +6,16 @@ import { ClientMenuComponent } from './client-menu/client-menu.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminRestaurantsComponent } from './admin-restaurants/admin-restaurants.component';
 import { ClientRestaurantsComponent } from './client-restaurants/client-restaurants.component';
-import { OrderComponent } from './order/order.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'client', component: ClientMenuComponent },
   { path: 'manageMenu', component: AdminMenuComponent },
   { path: 'manageRestaurants', component: AdminRestaurantsComponent },
   { path: 'restaurants', component: ClientRestaurantsComponent },
   { path: 'menu', component: ClientMenuComponent },
-  { path: 'order', component: OrderComponent }
+  { path: 'cart', component: CartComponent }
  // { path: 'home', redirectTo: '', pathMatch: 'full' }
 ];
 

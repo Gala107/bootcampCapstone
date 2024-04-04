@@ -11,7 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminRestaurantsComponent } from './admin-restaurants/admin-restaurants.component';
-import { OrderComponent } from './order/order.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { OrderComponent } from './order/order.component';
     ClientMenuComponent,
     ClientRestaurantsComponent,
     AdminRestaurantsComponent,
-    OrderComponent
+    CartComponent
   ],
   imports: [
     BrowserModule,
