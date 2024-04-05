@@ -9,10 +9,6 @@ td {
     vertical-align: center;
 }
 
-td:nth-child(1) {
-    width: 15%;
-}
-
 td:nth-child(2) {
     width: 80%;
 }

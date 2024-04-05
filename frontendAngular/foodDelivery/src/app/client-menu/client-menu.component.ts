@@ -15,8 +15,7 @@ import { CartService } from '../cart.service';
 })
 export class ClientMenuComponent implements OnInit, OnDestroy {
 
-  name: any = sessionStorage.getItem("userName");
-  email: any = sessionStorage.getItem("userEmail");
+  user: any = sessionStorage.getItem("user");
   dishes: Dish[] = [];
   restaurants: Restaurant[] = [];
   dishesByType: Map<string, Dish[]> = new Map();
@@ -33,7 +32,7 @@ export class ClientMenuComponent implements OnInit, OnDestroy {
   }
 
   addToCart(dish: any): void {
-    if (this.name == null || this.email == null) {
+    if (this.user == null) {
       alert("Please Sign In to start an Order. Thank you!");
       this.router.navigateByUrl("/menu");
     }

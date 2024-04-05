@@ -25,18 +25,18 @@ public class Order {
 	@ManyToOne
 	private User user;
 	@OneToMany
-	private List<Dish> dishes;
+	private List<OrderItem> items;
 	
 	public Order() {
 
 	}
-	public Order(int id, float total, boolean isPaid, User user, List<Dish> dishes) {
+	public Order(int id, float total, boolean isPaid, User user, List<OrderItem> items) {
 
 		this.id = id;
 		this.total = total;
 		this.isPaid = isPaid;
 		this.user = user;
-		this.dishes = dishes;
+		this.items = items;
 	}
 	public int getId() {
 		return id;
@@ -56,11 +56,11 @@ public class Order {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public List<Dish> getDishes() {
-		return dishes;
+	public List<OrderItem> getItems() {
+		return items;
 	}
-	public void setDishes(List<Dish> dishes) {
-		this.dishes = dishes;
+	public void setItems(List<OrderItem> items) {
+		this.items = items;
 	}
 	public boolean isPaid() {
 		return isPaid;

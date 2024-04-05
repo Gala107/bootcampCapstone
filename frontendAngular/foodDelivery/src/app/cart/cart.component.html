@@ -1,6 +1,7 @@
 <div class="cartDiv">
     <h3>Your cart</h3>
-    <table>
+    <div>{{msg}}</div>
+    <table *ngIf="msg == ''">
         <tbody *ngFor="let dish of dishes">
             <tr>
                 <td class="dishImg"><img src={{dish.image}} /></td>

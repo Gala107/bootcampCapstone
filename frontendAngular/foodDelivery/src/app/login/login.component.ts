@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     isAdmin: new FormControl('false')
   })
 
-  constructor(private service: LoginService, private router: Router) { }
+  constructor(private service: LoginService) { }
 
   ngOnInit(): void {
 
@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         if (result.user != null) {
           sessionStorage.setItem("userEmail", result.user.email);
           sessionStorage.setItem("userName", result.user.firstName);
+          sessionStorage.setItem("user", JSON.stringify(result.user));
           if (result.user.isAdmin == "true") {
             sessionStorage.setItem("userType", "admin");
           } else {
@@ -74,11 +75,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     let login = this.signUpForm.value;
 
     this.subscription = this.service.signUp(login).subscribe({
-      next: (result: any) => { this.msg = result; },
+      next: (result: any) => { 
+        this.msg = result; 
+      },
       error: (error: any) => { console.error(error) },
       complete: () => console.log("Sign Up is completed.")
     })
-   
-    //this.signUpForm.reset();
   }
 }

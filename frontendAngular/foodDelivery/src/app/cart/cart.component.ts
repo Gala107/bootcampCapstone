@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 export class CartComponent {
 
   dishes: Dish[];  
+  msg: string = "";
+  instanceRef: any;
 
   constructor(private cartService: CartService) {
     this.dishes = cartService.getDishes();
@@ -38,6 +40,10 @@ export class CartComponent {
   }
 
   submitOrder(): void {
-    this.cartService.submitOrder();
+    this.cartService.submitOrder().subscribe({
+      next: (result: any) => { this.msg = result; },
+      error: (error: any) => { console.error(error) },
+      complete: () => { "Saving an Order is completed." }
+    });
   }
 }

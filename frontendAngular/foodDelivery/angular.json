@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "foodDelivery:build:production"
+              "buildTarget": "foodDelivery:build:production"
             },
             "development": {
-              "browserTarget": "foodDelivery:build:development"
+              "buildTarget": "foodDelivery:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "foodDelivery:build"
+            "buildTarget": "foodDelivery:build"
           }
         },
         "test": {

@@ -7,7 +7,6 @@ import { CartComponent } from './cart/cart.component';
 import { Dish } from './dish';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,6 +16,8 @@ export class AppComponent {
   title = 'HUNDREDS OF FLAVORS UNDER ONE ROOF';
   public sessionStorage: Storage = sessionStorage;
   dishes: Dish[] = [];
+  userType: string = "";
+  userName: string = "";
 
   constructor(public router: Router, private ngbModal: NgbModal, private cartService: CartService) {
     this.dishes = cartService.getDishes();
@@ -44,7 +45,8 @@ export class AppComponent {
   }
 
   viewCart(): void {
-    const cartModel = this.ngbModal.open(CartComponent);
-    cartModel.componentInstance.cartDishesApp = this.dishes;
+    const cartModal = this.ngbModal.open(CartComponent);
+    cartModal.componentInstance.cartDishesApp = this.dishes;
+    cartModal.componentInstance.instanceRef = cartModal;
   }
 }

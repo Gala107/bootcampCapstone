@@ -16,8 +16,8 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
 
   dishType = DishType;
   
-  name: any = sessionStorage.getItem("userName");
-  email: any = sessionStorage.getItem("userEmail");
+ // name: any = sessionStorage.getItem("userName");
+ // email: any = sessionStorage.getItem("userEmail");
   msg: string = "";
   dishes: Dish[] = [];
   restaurants: Restaurant[] = [];
@@ -31,7 +31,7 @@ export class AdminMenuComponent implements OnInit, OnDestroy {
   dishForm = new FormGroup({
     name: new FormControl("", Validators.required),
     description: new FormControl("", Validators.required),
-    price: new FormControl(0, Validators.required),
+    price: new FormControl("", Validators.required),
     type: new FormControl("", Validators.required),
     image: new FormControl("", Validators.required),
     restaurant: new FormGroup({

@@ -16,22 +16,12 @@ import { CartService } from '../cart.service';
 export class ClientRestaurantsComponent implements OnInit, OnDestroy {
 
   enum: typeof DishType = DishType;
-
-  name: any = sessionStorage.getItem("userName");
-  email: any = sessionStorage.getItem("userEmail");
+  user: any = sessionStorage.getItem("user");
   msg: string = "";
   dishes: Dish[] = [];
   restaurants: Restaurant[] = [];
   subscription: any;
   isAddDish: boolean = false;
-
-  // dishForm = new FormGroup({
-  //   name: new FormControl("", Validators.required),
-  //   description: new FormControl("", Validators.required),
-  //   price: new FormControl("", Validators.required),
-  //   type: new FormControl("", Validators.required),
-  //   image: new FormControl("", Validators.required)
-  // })
 
   constructor(private router: Router, private menuService: MenuService, private restaurantService: RestaurantsService, private cartService: CartService) { }
   ngOnInit(): void {
@@ -43,7 +33,7 @@ export class ClientRestaurantsComponent implements OnInit, OnDestroy {
   }
 
   addToCart(dish: any): void {
-    if (this.name == null || this.email == null) {
+    if (this.user == null) {
       alert("Please Sign In to start an Order. Thank you!");
       this.router.navigateByUrl("/restaurants");
     }
@@ -75,10 +65,4 @@ export class ClientRestaurantsComponent implements OnInit, OnDestroy {
     });
     console.log("finished loading resttaurant info");
   }
-
-  // logout(): void {
-  //   sessionStorage.clear();
-  //   this.router.navigate(["home"], { skipLocationChange: true });
-  // }
-
 }

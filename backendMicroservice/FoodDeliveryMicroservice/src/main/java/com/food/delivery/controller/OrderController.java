@@ -19,8 +19,8 @@ public class OrderController {
 	@Autowired
 	private OrderService service;
 	
-	@PostMapping(name = "saveOrder", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void saveOrderPayment(@RequestBody Order order) {
-		service.saveOrderPayment(order);
+	@PostMapping(value = "saveOrder", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String saveOrderPayment(@RequestBody Order order) {
+		return service.saveOrderPayment(order);
 	}
 }
