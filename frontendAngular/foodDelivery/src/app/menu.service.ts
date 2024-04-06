@@ -7,7 +7,7 @@ import { Dish } from './dish';
   providedIn: 'root'
 })
 export class MenuService {
-  baseUrl: string = "http://localhost:8282/menu";
+  baseUrl: string = "http://3.144.231.213:8282/menu";
 
   constructor(private http: HttpClient) { }
 
