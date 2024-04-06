@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class RestaurantsService {
 
-  baseUrl: string = "http://3.144.231.213:8282/restaurant";
+  baseUrl: string = "http://18.191.170.160:8282/restaurant";
 
   constructor(private http: HttpClient) { }
 
