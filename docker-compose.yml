@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  mysql-container:
+    image: mysql:8
+    container_name: food-delivery-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bootcamp_capstone_db
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+
+  eureka-server:
+    build: ./backendMicroservice/Eureka-Server/
+    ports:
+      - "8761:8761"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+
+  microservice:
+    build: ./backendMicroservice/FoodDeliveryMicroservice/
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_APPLICATION_NAME=food-delivery-microservice
+    depends_on:
+      - mysql-container
+      - eureka-server
+    ports:
+      - 8282:8282
+    restart: always
+
+  angular-container:
+    build: ./frontendAngular/foodDelivery/
+    container_name: food-delivery-frontend
+    ports:
+      - 80:80
+    restart: always 
+volumes:
+  db:
+   driver: local 
