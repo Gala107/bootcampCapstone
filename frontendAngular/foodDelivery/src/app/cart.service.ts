@@ -10,7 +10,7 @@ import { OrderItem } from './order-item';
 })
 export class CartService {
 
-  baseUrl: string = "http://18.191.170.160:8282/order";
+  baseUrl: string = "http://18.222.174.68:8282/order";
 
   dishes: Dish[];
   cartDishCount;

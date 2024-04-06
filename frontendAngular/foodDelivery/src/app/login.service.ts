@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  baseUrl: string = "http://18.191.170.160:8282/login";
+  baseUrl: string = "http://18.222.174.68:8282/login";
 
   constructor(private http: HttpClient) {}
 
